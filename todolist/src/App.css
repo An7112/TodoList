@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+}
+
+.App .table {
+  margin: 2rem 30rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.table .header_table {
+
+  width: 800px;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: black;
+  border-radius: 14px;
+}
+
+h5 {
+  color: white;
+}
+.table .Item_table_list {
+  margin: 1rem 0;
+  width: 800px;
+  height: 80px;
+  align-items: center;
+  justify-content: space-around;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  border-radius: 14px;
+}
+.btn{
+  text-align: center;
+  width: 70px;
+  height: 40px;
+}
+
+.form-group{
+  margin-left: 35%;
+  margin-bottom: 1rem;
+  width: 600px;
+}
