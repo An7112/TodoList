@@ -13,8 +13,8 @@ class CreateData extends Component {
         super(props)
         this.state = {
             Item: "",
-            TypeItem: false,
-            Radio: false
+            TypeItem: "",
+            Radio: ""
         }
 
         this.handleItem = this.handleItem.bind(this)
@@ -28,14 +28,14 @@ class CreateData extends Component {
             Item: e.target.value
         })
     }
-    handleTypeItem() {
-        this.setState(prevState => ({
-            TypeItem: !prevState.TypeItem
+    handleTypeItem(e) {
+        this.setState(() => ({
+            TypeItem: e.target.value
           }));
     }
-    handleRadio() {
-        this.setState(prevState => ({
-            Radio: !prevState.Radio
+    handleRadio(e) {
+        this.setState(() => ({
+            Radio: e.target.value
           }));
     }
     onSubmit(e) {
@@ -57,11 +57,14 @@ class CreateData extends Component {
                     <div className="form-group">
                         <input className="form-control" type="text" onChange={this.handleItem} />
                     </div>
-                    <div className="form-group">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={this.handleTypeItem} />
+                    <div className="form-group">  
+                    <input class="form-check-input" type="checkbox" value="Premium" id="flexCheckDefault" onChange={this.handleTypeItem} />
+                    <label>Premium</label>
                     </div>
                     <div className="form-group">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onChange={this.handleRadio}/>
+                        
+                    <input class="form-check-input" type="radio" value="Gold" name="flexRadioDefault" id="flexRadioDefault1" onChange={this.handleRadio}/>
+                    <label>Gold</label>
                     </div>
                     <div className="form-group">
                         <input type="submit"

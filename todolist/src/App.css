@@ -1,13 +1,19 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
 }
 
 .App .table {
-  margin: 2rem 30rem;
+  margin: 2rem 5rem;
   display: flex;
   flex-direction: column;
 }
-
+.App .tableSub{
+  width: 800px;
+  height: 600px;
+  background-color: black;
+}
 .table .header_table {
 
   width: 800px;
@@ -43,4 +49,7 @@ h5 {
   margin-left: 35%;
   margin-bottom: 1rem;
   width: 600px;
+}
+.Container .form-group.x{
+  margin: 0 auto;
 }

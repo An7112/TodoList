@@ -1,12 +1,12 @@
 import React, { useState, useEffect, Component } from 'react'
-import { useParams ,useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 function withRouter(Component) {
     function TodoList(props) {
         let params = useParams();
         let navigate = useNavigate();
-        return <Component {...props} params={params} navigate={navigate}/>;
+        return <Component {...props} params={params} navigate={navigate} />;
     }
     return TodoList;
 }
@@ -21,7 +21,7 @@ class UpdateData extends Component {
         this.state = {
             Item: '',
             TypeItem: '',
-            Radio:''
+            Radio: ''
         }
     }
     componentDidMount() {
@@ -41,15 +41,15 @@ class UpdateData extends Component {
     onChangeItem(e) {
         this.setState({ Item: e.target.value })
     }
-    onChangeTypeItem() {
-        this.setState(prevState => ({
-            TypeItem: !prevState.TypeItem
-          }));
+    onChangeTypeItem(e) {
+        this.setState(() => ({
+            TypeItem: e.target.value
+        }));
     }
-    onChangeRadio() {
-        this.setState(prevState => ({
-            Radio: !prevState.Radio
-          }));
+    onChangeRadio(e) {
+        this.setState(() => ({
+            Radio: e.target.value
+        }));
     }
     onSubmit(event) {
         event.preventDefault();
@@ -83,10 +83,10 @@ class UpdateData extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        {this.state.TypeItem == false ?  <input class="form-check-input" type="checkbox" onChange={this.onChangeTypeItem}/> : <input class="form-check-input" type="checkbox" id="flexCheckChecked" value={this.state.TypeItem} checked onChange={this.onChangeTypeItem}/>}
+                        {this.state.TypeItem == false ? <div className="form-group"> <input class="form-check-input" value="Premium" type="checkbox" onChange={this.onChangeTypeItem} /> <label>Premium</label></div> :<div className="form-group"> <input class="form-check-input" type="checkbox" id="flexCheckChecked" value={this.state.TypeItem} checked onChange={this.onChangeTypeItem} /><label>Premium</label> </div>}
                     </div>
                     <div className="form-group">
-                        {this.state.Radio == false ?   <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onChange={this.onChangeRadio}/> : <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked onChange={this.onChangeRadio}/>}
+                        {this.state.Radio == false ?<div className="form-group"> <input class="form-check-input" type="radio" value="Gold" name="flexRadioDefault" id="flexRadioDefault1" onChange={this.onChangeRadio} /><label>Gold</label> </div>: <div className="form-group"><input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked onChange={this.onChangeRadio} /><label>Gold</label></div>}
                     </div>
                     <div className="form-group">
                         <input type="submit"

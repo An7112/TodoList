@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import GetBySubmit from './GetBySubmit';
 function GetData() {
     const [Data, setData] = useState([]);
         useEffect(() => {
@@ -17,6 +18,9 @@ function GetData() {
         }, []);
         return (
             <div className='App'>
+                <div className='tableSub'>
+                    <GetBySubmit/>
+                </div>
                 <div className='table'>
                     <div className='header_table'>
                         <Link to='/'><h5>ListItem</h5></Link>
