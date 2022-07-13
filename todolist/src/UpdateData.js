@@ -42,13 +42,13 @@ class UpdateData extends Component {
         this.setState({ Item: e.target.value })
     }
     onChangeTypeItem(e) {
-        this.setState(() => ({
-            TypeItem: e.target.value
+        this.setState((prevCount) => ({
+            TypeItem: !prevCount.TypeItem
         }));
     }
     onChangeRadio(e) {
-        this.setState(() => ({
-            Radio: e.target.value
+        this.setState((prevCount) => ({
+            Radio: !prevCount.Radio
         }));
     }
     onSubmit(event) {
@@ -83,10 +83,10 @@ class UpdateData extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        {this.state.TypeItem == false ? <div className="form-group"> <input class="form-check-input" value="Premium" type="checkbox" onChange={this.onChangeTypeItem} /> <label>Premium</label></div> :<div className="form-group"> <input class="form-check-input" type="checkbox" id="flexCheckChecked" value={this.state.TypeItem} checked onChange={this.onChangeTypeItem} /><label>Premium</label> </div>}
+                        <div className="form-group"> <input class="form-check-input" type="checkbox" id="flexCheckChecked" value={this.state.TypeItem} checked={this.state.TypeItem} onChange={this.onChangeTypeItem} /><label>Premium</label> </div>
                     </div>
                     <div className="form-group">
-                        {this.state.Radio == false ?<div className="form-group"> <input class="form-check-input" type="radio" value="Gold" name="flexRadioDefault" id="flexRadioDefault1" onChange={this.onChangeRadio} /><label>Gold</label> </div>: <div className="form-group"><input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked onChange={this.onChangeRadio} /><label>Gold</label></div>}
+                         <div className="form-group"><input class="form-check-input" type="radio" name="flexRadioDefault" value={this.state.TypeItem} id="flexRadioDefault2" checked={this.state.Radio} onChange={this.onChangeRadio} /><label>Gold</label></div>
                     </div>
                     <div className="form-group">
                         <input type="submit"

@@ -5,10 +5,10 @@ const TotoSchema = mongoose.Schema({
         type: String
     },
     TypeItem:{
-        type: String
+        type: Boolean
     },
     Radio:{
-        type: String
+        type: Boolean
     }
 },{
     collection:'TodoList'

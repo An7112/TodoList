@@ -13,8 +13,8 @@ class CreateData extends Component {
         super(props)
         this.state = {
             Item: "",
-            TypeItem: "",
-            Radio: ""
+            TypeItem: false,
+            Radio: false
         }
 
         this.handleItem = this.handleItem.bind(this)
@@ -29,14 +29,14 @@ class CreateData extends Component {
         })
     }
     handleTypeItem(e) {
-        this.setState(() => ({
-            TypeItem: e.target.value
-          }));
+        this.setState((prevCount) => ({
+            TypeItem: !prevCount.TypeItem
+        }));
     }
     handleRadio(e) {
-        this.setState(() => ({
-            Radio: e.target.value
-          }));
+        this.setState((prevCount) => ({
+            Radio: !prevCount.Radio
+        }));
     }
     onSubmit(e) {
         e.preventDefault()
