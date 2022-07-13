@@ -18,19 +18,14 @@ export default function GetBySubmit() {
     const Filter = values.filter((element, e) => {
         return element.Item == SubName
     })
-    const FilterCheck = values.filter((element) => {
-        return element.Radio == SubCheck
+    const FilterList = Filter.map((element) => {
+        return element.Item
     })
-    const ChilFil = Filter.map((ele) => {
-        return (
-                <div key={ele._id}>
-                    <h5>{ele.Item}</h5>
-                    <h5>{ele._id}</h5>
-                </div>
-        )
+    const FilterCheck = values.filter((element) => {
+        return (element.Radio == SubCheck , element.Item == SubName)
     })
     const ChilFilCheck = FilterCheck.map((ele) => {
-        if(FilterCheck == FilterCheck){
+        if(FilterList[0] == ele.Item || FilterCheck == ele.Radio){
             return (
                 <div>
                     <div key={ele._id}>
@@ -39,9 +34,19 @@ export default function GetBySubmit() {
                     </div>
                 </div>
             )
+        }else if ( FilterCheck == ele.Radio){
+            return (
+                <div key={ele._id}>
+                    <h5>{ele.Item}</h5>
+                    <h5>{ele._id}</h5>
+                </div>
+        )
+        }else{
+            return null
         }
     })
-    console.log(FilterCheck)
+
+    console.log(ChilFilCheck)
     return (
         <div className='Container' style={{ marginTop: '2rem' }}>
             <h3 style={{ color: 'white' }}>Tự lọc dữ liệu khi bạn nhập </h3>
@@ -51,7 +56,7 @@ export default function GetBySubmit() {
                 </div>
                 <div className="form-group"> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onClick={() => setSubCheck(prevCount => !prevCount)} /><label>Gold</label> </div>
                <div>
-                {ChilFilCheck.length < 1 ? <div className='ChilFilCheck'>{ChilFilCheck}</div> : <div>{ChilFil}</div>}
+                <div className='ChilFilCheck'>{ChilFilCheck}</div>
                </div>
             </form>
         </div>
